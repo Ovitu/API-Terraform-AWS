@@ -51,23 +51,23 @@ http://[IP-DA-APLICACAO]:3000/connect
 - Desativada por custos da nuvem
 ```
 
-## O que aprendi?
+## O que eu fiz?
 
 Neste projeto eu aprendi:
 
-✅ Como criar infraestrutura na nuvem (AWS)
-✅ Como usar containers (Docker)
-✅ Como conectar aplicação com banco de dados
-✅ Como fazer deploy simples automatizado (CI/CD)
-✅ Como configurar segurança (firewalls, SSL)
+✅ criei infraestrutura na nuvem (AWS)
+✅ usei containers (Docker)
+✅ conectei aplicação com banco de dados
+✅ fiz deploy simples automatizado (CI/CD)
+✅ configurar segurança (firewalls, SSL)
 
 ## Segurança
 
 O projeto tem segurança em várias camadas:
 
-- 🔒 Banco de dados em rede privada (ninguém de fora acessa direto)
-- 🔒 Comunicação com SSL/TLS (criptografada)
-- 🔒 Firewall (Security Groups) controlando o acesso
+- Banco de dados em rede privada (ninguém de fora acessa direto)
+- Comunicação com SSL/TLS (criptografada)
+- Firewall (Security Groups) controlando o acesso
 
 ## Custos
 
