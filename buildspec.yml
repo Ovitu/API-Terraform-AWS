@@ -4,21 +4,22 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - # O comando abaixo faz o login automático no seu repositório ECR
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URL
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - # Constrói a imagem usando o Dockerfile da raiz
+      - docker build -t $REPOSITORY_URL:latest .
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - # Envia a imagem para a nuvem da AWS
+      - docker push $REPOSITORY_URL:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"simple-api","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
-
+      - # Cria o arquivo que avisa o ECS para atualizar o container
+      - printf '[{"name":"simple-api","imageUri":"%s"}]' $REPOSITORY_URL:latest > imagedefinitions.json
 artifacts:
-  files:
-    - imagedefinitions.json
+    files: imagedefinitions.json
