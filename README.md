@@ -7,9 +7,9 @@ Este projeto demonstra a implementação de uma infraestrutura robusta, escaláv
 A arquitetura foi desenhada seguindo as melhores práticas de isolamento de rede e resiliência:
 
 * **VPC (Virtual Private Cloud):** Rede customizada segmentada em subnets públicas e privadas para segurança dos dados.
-* **ECS Fargate:** Orquestração de containers em modo serverless, eliminando a necessidade de gerenciar servidores físicos ou instâncias EC2.
+* **ECS Fargate:** Orquestração de containers serverless, eliminando a necessidade de gerenciar servidores físicos ou instâncias EC2.
 * **Application Load Balancer (ALB):** Gerenciamento inteligente de tráfego e ponto de entrada único para a API.
-* **Security Groups:** Camadas de firewall granulares protegendo a comunicação entre o Load Balancer, os containers e o banco de dados.
+* **Security Groups:** Camadas de firewall protegendo a comunicação entre o Load Balancer, os containers e o banco de dados.
 * **Amazon RDS (Postgres):** Banco de dados relacional isolado em rede privada, preparado para conexões seguras via SSL.
 * **NAT Gateways:** Permitem que os containers na rede privada realizem atualizações e acessem serviços externos de forma segura.
 
@@ -17,11 +17,11 @@ A arquitetura foi desenhada seguindo as melhores práticas de isolamento de rede
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Infraestrutura:** Terraform (HashiCorp)
-* **Aplicação:** Node.js (Express)
+* **Infraestrutura:** Terraform
+* **Aplicação:** Node.js 
 * **Containerização:** Docker
 * **Nuvem:** Amazon Web Services (AWS)
-* **CI/CD:** AWS CodeBuild & GitHub Webhooks
+* **CI/CD:** AWS CodeBuild & GitHub
 
 ## 🔄 Fluxo de Deploy Automatizado (CI/CD)
 
