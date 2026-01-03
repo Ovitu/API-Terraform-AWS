@@ -1,0 +1,3 @@
+# Ignora arquivos de dependências para equilibrar o gráfico
+package-lock.json linguist-detectable=false
+node_modules/* linguist-detectable=false
